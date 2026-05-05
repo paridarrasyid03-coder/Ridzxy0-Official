@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ridzxy0 • Ridzxy0 Official</title>
+    
+    <!-- ========= FAVICON ========= -->
+    <link rel="icon" type="image/png" href="https://files.catbox.moe/xjls2x.png">
+    <link rel="apple-touch-icon" href="https://files.catbox.moe/xjls2x.png">
+    
+    <!-- ========= META SECURITY ========= -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        input, textarea, [contenteditable="true"] {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #eef5ff;
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .bg-fallback {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+            z-index: -3;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes floatSoft {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+        .avatar, .card, .btn-contact, .group-badge, .payment-item, .testimoni-card, .dashboard-stat, .music-player-card {
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            animation: floatSoft 4s infinite ease-in-out;
+            will-change: transform;
+            background: rgba(30, 35, 50, 0.75);
+            backdrop-filter: blur(4px);
+            border: 1px solid #64748b;
+            border-radius: 2rem;
+            padding: 1rem 1.5rem;
+        }
+        .avatar:hover, .card:hover, .btn-contact:hover, .group-badge:hover, .payment-item:hover, .testimoni-card:hover, .dashboard-stat:hover, .music-player-card:hover {
+            animation: none;
+            transform: translateY(-6px) scale(1.01);
+            background: rgba(30, 35, 50, 0.9);
+            box-shadow: 0 0 14px #94a3b8, 0 0 28px rgba(148, 163, 184, 0.4);
+            border-color: #cbd5e1 !important;
+        }
+
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 12px #94a3b8, 0 8px 20px rgba(0,0,0,0.3);
+            border: 2px solid #94a3b8;
+            overflow: hidden;
+            background: #1e2335;
+            padding: 0;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f1f5f9, #94a3b8, #64748b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .tagline {
+            background: rgba(148, 163, 184, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #94a3b8;
+            display: inline-block;
+        }
+
+        .dashboard-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            justify-content: center;
+            margin: 1.8rem 0 2rem;
+        }
+        .dashboard-stat {
+            text-align: center;
+            flex: 1;
+            min-width: 130px;
+        }
+        .stat-number { font-size: 2rem; font-weight: 800; color: #cbd5e1; }
+        .dashboard-stat div:last-child { color: #94a3b8; font-size: 0.9rem; }
+
+        .music-player-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0 2rem;
+        }
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .music-btn {
+            background: #64748b;
+            border: none;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 0 10px #94a3b8;
+        }
+        .music-btn:hover {
+            transform: scale(1.05);
+            background: #94a3b8;
+            box-shadow: 0 0 18px #cbd5e1;
+        }
+        .music-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .music-title span { color: #94a3b8; }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid #64748b;
+            padding-left: 1rem;
+            color: #eef5ff;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            padding: 1.4rem 1.5rem;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: #eef5ff;
+        }
+        .btn-contact {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #eef5ff;
+            margin-bottom: 8px;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+        }
+        .btn-contact i { color: #94a3b8; width: 28px; }
+        .btn-contact:hover { background: rgba(50, 55, 75, 0.9); border-color: #cbd5e1; }
+        
+        .group-badge {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+        }
+        .payment-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .payment-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.4rem 1.2rem;
+        }
+        .testimoni-card {
+            margin-bottom: 1rem;
+            border-left: 4px solid #94a3b8;
+            padding: 1rem;
+        }
+        .qr-image-custom {
+            background: white;
+            border-radius: 16px;
+            padding: 6px;
+            width: 85px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #64748b;
+        }
+        .footer-social a {
+            font-size: 1.8rem;
+            color: #94a3b8;
+            transition: 0.2s;
+        }
+        .footer-social a:hover {
+            color: #cbd5e1;
+            text-shadow: 0 0 10px #94a3b8;
+            transform: translateY(-3px);
+        }
+        
+        .security-watermark {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            font-size: 0.6rem;
+            color: rgba(148, 163, 184, 0.3);
+            z-index: 999;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 680px) {
+            .container { padding: 1rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .dashboard-row { flex-direction: column; }
+            .music-player-card { flex-direction: column; align-items: stretch; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://github.com/paridarrasyid03-coder/link-mentah/raw/refs/heads/main/VID_20260505_155958.mp4" type="video/mp4">
+    <div class="bg-fallback"></div>
+</video>
+
+<div class="container">
+    <div class="hero">
+        <div class="avatar">
+            <img src="https://brave-purple-51qdgwq8qq.edgeone.app/IMG_20260504_184311.png" alt="Profile Ridzxy0" onerror="this.src='https://via.placeholder.com/110/2a2f3f/94a3b8?text=Ridzxy0'">
+        </div>
+        <h1>Ridzxy0</h1>
+        <div class="tagline"><i class="fas fa-crown"></i> Ridzxy0 Official • Developer</div>
+    </div>
+
+    <div class="dashboard-row">
+        <div class="dashboard-stat"><div class="stat-number" id="statProjects">3</div><div><i class="fas fa-code-branch"></i> Projects</div></div>
+        <div class="dashboard-stat"><div class="stat-number" id="statClients">156</div><div><i class="fas fa-smile"></i> Happy Clients</div></div>
+        <div class="dashboard-stat"><div class="stat-number" id="statRating">4.96</div><div><i class="fas fa-star"></i> Satisfaction</div></div>
+    </div>
+
+    <div class="music-player-card">
+        <div class="music-info">
+            <button class="music-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <div class="music-title">
+                <i class="fas fa-headphones"></i> Spirit Lead Me<br>
+                <span>Clavier • Owner</span>
+            </div>
+        </div>
+        <audio id="audioPlayer" loop preload="auto">
+            <source src="https://strategic-copper-rfrxgksbq6.edgeone.app/ssstik.io_1777921403395.mp3" type="audio/mpeg">
+        </audio>
+        <div style="font-size:0.7rem;"><i class="fas fa-waveform"></i> enjoyed</div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-phone-volume"></i> Contact langsung</div>
+    <div class="card-grid">
+        <div class="card">
+            <h3><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp Utama</h3>
+            <div class="btn-contact" data-wa="6289504761838"><i class="fab fa-whatsapp"></i> +62 895-0476-1838</div>
+        </div>
+        <div class="card">
+            <h3><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp Kedua</h3>
+            <div class="btn-contact" data-wa="6289669027816"><i class="fab fa-whatsapp"></i> +62 896-6902-7816</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="fab fa-telegram-plane"></i> Telegram</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="group-badge" data-link="https://t.me/RiidzzSTR">@RiidzzSTR  <i class="fas fa-arrow-right"></i></div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="fab fa-discord"></i> Discord</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="group-badge" data-link="https://discord.gg/@bahlil99">@bahlil99 <span style="color:#94a3b8;"></span></div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-scroll"></i> Testimoni & Channel</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="testimoni-card">⚡ "Trusted and fastres"<div style="margin-top:6px;">— buyer 1</div></div>
+            <div class="testimoni-card">🚀 "Baik dan Ramah"<div style="margin-top:6px;">— buyer 2</div></div>
+            <div class="btn-contact" data-link="https://whatsapp.com/channel/0029VbBkkCY0VycNdTtnYi0g" style="justify-content:center;"><i class="fab fa-whatsapp"></i> Lihat semua testimoni</div>
+        </div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-hashtag"></i> Other Social Media</div>
+    <div class="card-grid">
+        <div class="card"><h3><i class="fab fa-telegram-plane"></i> Telegram</h3><div class="btn-contact" data-link="https://t.me/RiidzzSTR"><i class="fab fa-telegram"></i> @RiidzzSTR</div></div>
+        <div class="card"><h3><i class="fab fa-tiktok"></i> TikTok</h3><div class="btn-contact" data-link="https://tiktok.com/@ridzxy_0"><i class="fab fa-tiktok"></i> @ridzxy_0</div></div>
+        <div class="card"><h3><i class="fab fa-discord"></i> Discord</h3><div class="btn-contact" data-link="https://discord.gg/@bahlil99"><i class="fab fa-discord"></i> @bahlil99 </div></div>
+    </div>
+
+    <!-- ========= PEMBAYARAN DENGAN QRIS BISA DIKLIK ========= -->
+    <div class="section-title"><i class="fas fa-wallet"></i> Payment Gateway</div>
+    <div class="card">
+        <div class="payment-icons">
+            <span class="payment-item"><i class="fas fa-qrcode"></i> QRIS</span>
+            <span class="payment-item"><i class="fas fa-mobile-alt"></i> DANA</span>
+            <span class="payment-item"><i class="fab fa-google-pay"></i> GoPay</span>
+            <span class="payment-item"><i class="fas fa-credit-card"></i> OVO</span>
+        </div>
+        
+        <!-- QRIS bisa diklik, muncul popup besar -->
+        <div style="margin-top: 18px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+            <div id="qrisClickable" style="cursor: pointer; text-align: center;">
+                <img class="qr-image-custom" src="https://files.catbox.moe/vtx9ie.jpg" alt="QRIS" crossorigin="anonymous" style="pointer-events: none;">
+                <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 5px;">
+                    <i class="fas fa-search-plus"></i> Klik untuk memperbesar
+                </div>
+            </div>
+            <div><i class="fas fa-donate"></i> Scan QRIS atau kirim ke:<br>
+            <span style="background:#1e2335; padding:4px 12px; border-radius:30px;">DANA: 089669027816</span><br>
+            <span style="background:#1e2335; padding:4px 12px; border-radius:30px;">GOPAY: 089669027816 | OVO: 089669027816</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popup QRIS (hidden by default) -->
+    <div id="qrisModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; cursor: pointer;">
+        <div style="max-width: 90%; max-height: 90%; text-align: center; background: white; padding: 20px; border-radius: 20px; display: inline-block;">
+            <img src="https://files.catbox.moe/vtx9ie.jpg" alt="QRIS Besar" style="max-width: 100%; max-height: 70vh; border-radius: 10px;">
+            <p style="margin-top: 15px; font-size: 14px; color: black;">Scan QRIS di atas menggunakan aplikasi pembayaran (DANA, GOPAY, OVO, QRIS)</p>
+            <button id="closeModalBtn" style="margin-top: 10px; background: #64748b; color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer;">Tutup</button>
+        </div>
+    </div>
+
+    <div class="footer-social">
+        <a href="#" data-link="https://instagram.com/ridzxy0"><i class="fab fa-instagram"></i></a>
+        <a href="#" data-link="https://x.com/RiidzzSTR"><i class="fab fa-twitter"></i></a>
+        <a href="#" data-link="https://tiktok.com/@ridzxy_0"><i class="fab fa-tiktok"></i></a>
+        <a href="#" data-link="https://telegram.com/RiidzzSTR"><i class="fab fa-telegram"></i></a>
+        <a href="#" data-link="https://whatsapp.me/6289669027816"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div style="text-align:center; margin-top:1rem; font-size:0.7rem; color:#94a3b8;">© 2026 Ridzxy0 — protected hub</div>
+</div>
+
+<div class="security-watermark">🔒 Ridzxy0 • secured</div>
+
+<script>
+    (function(){
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'U') ||
+                (e.ctrlKey && e.key === 's') ||
+                (e.ctrlKey && e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('draggable', 'false');
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+        
+        let lastClickTime = 0;
+        const MIN_CLICK_INTERVAL = 500;
+        
+        function handleLinkClick(element, url) {
+            const now = Date.now();
+            if (now - lastClickTime < MIN_CLICK_INTERVAL) {
+                return;
+            }
+            lastClickTime = now;
+            if (url) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }
+        }
+        
+        document.querySelectorAll('.btn-contact[data-wa]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const waNumber = el.getAttribute('data-wa');
+                if (waNumber) {
+                    handleLinkClick(el, `https://wa.me/${waNumber}`);
+                }
+            });
+        });
+        
+        document.querySelectorAll('[data-link]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const url = el.getAttribute('data-link');
+                if (url) {
+                    handleLinkClick(el, url);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.footer-social a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = el.getAttribute('data-link');
+                if (url) {
+                    handleLinkClick(el, url);
+                }
+            });
+        });
+        
+        const statProjects = document.getElementById('statProjects');
+        const statClients = document.getElementById('statClients');
+        const statRating = document.getElementById('statRating');
+        let projVal = 3, clientVal = 156, ratingVal = 4.96;
+        setInterval(() => {
+            projVal += Math.floor(Math.random() * 2);
+            clientVal += Math.floor(Math.random() * 3);
+            ratingVal = (ratingVal + (Math.random() * 0.02 - 0.01)).toFixed(2);
+            if(projVal > 52) projVal = 3;
+            if(clientVal > 180) clientVal = 150;
+            if(ratingVal > 5.0) ratingVal = 4.85;
+            statProjects.innerText = projVal;
+            statClients.innerText = clientVal;
+            statRating.innerText = ratingVal;
+        }, 5000);
+
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playPauseBtn');
+        const playIcon = playBtn.querySelector('i');
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Audio play error:', e));
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        });
+
+        // QRIS POPUP MODAL
+        const qrisWrapper = document.getElementById('qrisClickable');
+        const qrisModal = document.getElementById('qrisModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        if (qrisWrapper) {
+            qrisWrapper.addEventListener('click', function() {
+                qrisModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', function() {
+                qrisModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
+
+        if (qrisModal) {
+            qrisModal.addEventListener('click', function(e) {
+                if (e.target === qrisModal) {
+                    qrisModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        document.querySelectorAll('.card, .btn-contact, .group-badge, .payment-item, .avatar, .dashboard-stat').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(e.target.closest('a')) return;
+                let notif = document.createElement('div');
+                notif.innerText = '⚡ success ⚡';
+                notif.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1e2335; backdrop-filter:blur(8px); border-radius:40px; padding:6px 20px; font-size:0.75rem; border:1px solid #94a3b8; z-index:999; color:#cbd5e1;';
+                document.body.appendChild(notif);
+                setTimeout(() => notif.remove(), 900);
+            });
+        });
+        
+        let devtoolsOpen = false;
+        const devtoolsCheck = () => {
+            const threshold = 160;
+            const widthDiff = window.outerWidth - window.innerWidth > threshold;
+            const heightDiff = window.outerHeight - window.innerHeight > threshold;
+            if (widthDiff || heightDiff) {
+                if (!devtoolsOpen) {
+                    devtoolsOpen = true;
+                    document.body.style.opacity = '0.95';
+                    setTimeout(() => {
+                        document.body.style.opacity = '';
+                    }, 500);
+                }
+            } else {
+                devtoolsOpen = false;
+            }
+        };
+        setInterval(devtoolsCheck, 2000);
+        
+        console.log('%c🔒 Ridzxy0 Official — Protected Mode Active', 'color: #94a3b8; font-size: 12px;');
+    })();
+</script>
+</body>
+</html>
